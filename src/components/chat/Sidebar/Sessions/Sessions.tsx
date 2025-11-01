@@ -129,7 +129,7 @@ const Sessions = () => {
     
     // When user_id is present, use agent from store if not in URL
     let effectiveAgentId = agentId
-    let effectiveMode = mode
+    
     
     if (userId && !effectiveAgentId) {
       // Wait for agents to load when user_id is present
@@ -137,7 +137,7 @@ const Sessions = () => {
         return
       }
       effectiveAgentId = agents[0].id || (agents[0] as any).agent_id
-      effectiveMode = 'agent'
+      
     }
     
     // Only require agentId/teamId when user_id is not present
@@ -289,9 +289,7 @@ const Sessions = () => {
         onMouseOver={() => setIsScrolling(true)}
         onMouseLeave={handleScroll}
       >
-        {isSessionsLoading ? (
-          <SkeletonList skeletonCount={3} />
-        ) : sessionsData && sessionsData.length > 0 ? (
+        {sessionsData && sessionsData.length > 0 ? (
           <div className="flex flex-col gap-y-1 pr-1">
             {sessionsData.map((entry, idx) => (
               <SessionItem

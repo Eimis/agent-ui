@@ -93,7 +93,7 @@ const useSessionLoader = () => {
         !selectedEndpoint ||
         !sessionId ||
             !entityType ||
-            (!userId && !selectedId && !dbId)
+            !selectedId || (!userId && !dbId)
           ) {
             return
           }
@@ -124,7 +124,6 @@ const useSessionLoader = () => {
                                         errorMessage.includes('404')
                 
                 if (isNotFoundError && userId) {
-                  retryWithSessionAgentId = true
                   
                   // If we don't have agents loaded, cannot retry
                   if (agents.length === 0) {
@@ -160,7 +159,7 @@ const useSessionLoader = () => {
                          tryAgentId
                        )
                        // Success! Break out of the loop
-                       lastError = null
+                       lastError = undefined
                        break
                      } catch (retryError) {
                        lastError = retryError as Error

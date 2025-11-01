@@ -2,7 +2,7 @@ import { toast } from 'sonner'
 
 import { APIRoutes } from './routes'
 
-import { AgentDetails, Sessions, TeamDetails, SessionEntry } from '@/types/os'
+import { AgentDetails, Sessions, TeamDetails } from '@/types/os'
 import { getUserId } from '@/utils/user'
 import { useStore } from '@/store'
 
@@ -139,10 +139,6 @@ export const getAllSessionsAPI = async (
     const data = await response.json()
     
     // Debug logging to understand the actual structure of session data
-    const sampleSession = Array.isArray(data) && data.length > 0 
-      ? data[0] 
-      : (data?.data?.[0] || null)
-    const sessionKeys = sampleSession ? Object.keys(sampleSession) : []
     
     
     // Map session data to ensure session_name field exists
