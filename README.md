@@ -1,5 +1,19 @@
 # Agent UI
 
+> **General project info:** [github.com/Eimis/partizanai → README](https://github.com/Eimis/partizanai/blob/main/README.md)
+> **Production server setup:** [PRODUCTION_README](https://github.com/Eimis/partizanai/blob/main/PRODUCTION_README.md)
+
+## Local Development
+
+```bash
+make dev      # Start dev server (port 3000)
+make install  # Install dependencies (npm install)
+```
+
+Full local stack setup (all services): see the [Agents README](https://github.com/Eimis/partizanai/blob/main/README.md).
+
+---
+
 A modern chat interface for AgentOS built with Next.js, Tailwind CSS, and TypeScript. This template provides a ready-to-use UI for connecting to and interacting with your AgentOS instances through the Agno platform.
 
 <img src="https://agno-public.s3.us-east-1.amazonaws.com/assets/agent_ui_banner.svg" alt="agent-ui" style="border-radius: 10px; width: 100%; max-width: 800px;" />
